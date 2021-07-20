@@ -43,9 +43,11 @@ export class HomeComponent implements OnInit {
   }
 
   addContact() {
-    this.phonebook.addContact(this.contact.value);
-    this.contacts.push(this.contact.value);
-    this.contact.reset();
+    if(this.contact.valid){
+      this.phonebook.addContact(this.contact.value);
+      this.contacts.push(this.contact.value);
+      this.contact.reset();
+    }    
     this.contact.markAsUntouched();
   }
 }
